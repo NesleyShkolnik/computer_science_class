@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-public class lesson4
+public class Main
 {
 	public static void main(String[] args)
 	{
@@ -8,11 +8,11 @@ public class lesson4
 		Random random = new Random();
   //1
 	    System.out.println("Enter the firts kid name: ");
-        String kid1 = scanner.next();
+        String kid1 = scan.next();
         System.out.println("Enter the second kid name: ");
-        String kid2 = scanner.next();
+        String kid2 = scan.next();
         System.out.println("Enter the thired kid name: ");
-        String kid3 = scanner.next();
+        String kid3 = scan.next();
         if (kid1.compareTo(kid2) < 0 && kid2.compareTo(kid3) < 0)
         {
             System.out.println(kid1 + " " + kid2 + " " + kid3);
