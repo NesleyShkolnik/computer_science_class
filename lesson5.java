@@ -135,3 +135,122 @@ public class lesson5
         }
     }
 }
+ //9
+    public class Main {
+        public static int strPow(String str)
+        {
+            int size = str.length();
+            int num = (int) Math.pow(size, 2);
+            return num;
+        }
+
+        public static void main(String[] args)
+        {
+            String str = new String("nesley");
+            int result = strPow(str);
+            System.out.println("The power of the number of characters in the string is: " + result);
+        }
+    }
+    //10
+    public class Main
+    {
+        public static int twoStr(String str1, String str2)
+        {
+            int size1 = str1.length();
+            int size2 = str2.length();
+            if (size1 > size2)
+            {
+                System.out.println(str1 + " is bigger");
+            }
+            else
+            {
+                System.out.println(str2 + " is bigger");
+            }
+            return 0;
+        }
+
+        public static void main(String[] args)
+        {
+            String str1 = new String("nesley");
+            String str2 = new String("dana");
+            twoStr (str1, str2);
+        }
+    }
+    //11
+    public class Main
+    {
+        public static int strCheck(String str, int num)
+        {
+            int size = str.length();
+            if (size == num)
+            {
+                System.out.println(true);
+            }
+            else
+            {
+                System.out.println(false);
+            }
+            return 0;
+        }
+
+        public static void main(String[] args)
+        {
+            String str = new String("nesley");
+            int num = 8;
+            strCheck (str, num);
+        }
+    }
+    //12
+    public class Main
+    {
+    	public static void main(String[] args) 
+    	{
+
+    		Random r=new Random();
+    	    int num1=r.nextInt(6)+1;
+    	    int num2=r.nextInt(6)+1;
+    		equal(num1,num2);
+    	}
+    	
+    	public static void equal(int num1,int num2)
+    	{
+    	    if (num1==num2)
+    	    {
+    	        System.out.println("eqauals");
+    	    }
+    	    else
+    	    {
+    	         System.out.println("not eqauals");
+    	        
+    	    }
+    	}    
+    }
+    //13
+    public class Main
+    {
+        private static Scanner scan = new Scanner(System.in);
+
+        public static void main(String[] args) {
+            char char1 = ' ';
+            String str = " ";
+            checks(str, char1);
+        }
+
+        public static void checks(String str, char char1)
+        {
+            System.out.println("Enter a 4 words string:");
+            str = scan.nextLine();
+            System.out.println("Enter one char:");
+            char1 = scan.next().charAt(0);
+
+            if (str.contains(String.valueOf(char1)))
+            {
+                System.out.println("true");
+            }
+            else
+            {
+                System.out.println("false");
+            }
+        }
+    }
+}
