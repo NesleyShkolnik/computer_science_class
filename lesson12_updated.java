@@ -27,10 +27,10 @@ public class lesson12
     	int i = 0;
     	int j = 0;
     	int sum = 0;
-    	for(i = 0; i <= 3; i++)
+    	for(i = 0; i < 3; i++)
     	{
     		sum = 0;
-    		for(j = 0; j <= 3; j++)
+    		for(j = 0; j < 3; j++)
     		{
     			System.out.println("Enter a number for the "+ i + "," + j + "cel in the array");
     			arr2[i][j] = scan.nextInt();   
@@ -43,14 +43,15 @@ public class lesson12
     //3
     public static void f3(int col_row)
     {
+        Random rand = new Random();
     	int arr1[][] = new int[col_row][col_row];
     	int arr2[][] = new int[col_row][col_row];
     	int arr3[][] = new int[col_row][col_row];
     	int i = 0;
     	int j = 0;
-    	for(i = 0; i <= col_row; i++)
+    	for(i = 0; i < col_row; i++)
     	{
-    		for(j = 0; j <= col_row; j++)
+    		for(j = 0; j < col_row; j++)
     		{
                 arr1[i][j] = rand.nextInt(101);
                 arr2[i][j] = rand.nextInt(101);
@@ -64,28 +65,41 @@ public class lesson12
     public static void f4(int col_row)
     {
         Random rand = new Random();
-    	int arr1[][] = new int[col_row][col_row];
-    	int arr2[][] = new int[col_row][col_row];
-    	int i = 0;
-    	int j = 0;
-    	for(i = 0; i>= col_row; i++)
-    	{
-    		for(j = 0; j <= col_row; j++)
-    		{
+        int arr1[][] = new int[col_row][col_row];
+        int arr2[][] = new int[col_row][col_row];
+        int i, j;
+        for(i = 0; i < col_row; i++)
+        {
+            for(j = 0; j < col_row; j++)
+            {
                 arr1[i][j] = rand.nextInt(101);
-                arr2[i][j] = arr2[j][i];
-                System.out.println(arr1 + " ");
-    		}
-    		System.out.println();
-    	}
-    	for(i = 0; i <= col_row; i++)
-    	{
-    		for(j = 0; j <= col_row; j++)
-    		{
-    			System.out.println(arr2 + " ");
-    		}
-    		System.out.println();
-    	}
+            }
+        }
+        for(i = 0; i < col_row; i++)
+        {
+            for(j = 0; j < col_row; j++)
+            {
+                arr2[j][i] = arr1[i][j];
+            }
+        }
+        System.out.println("Original matrix:");
+        for(i = 0; i < col_row; i++)
+        {
+            for(j = 0; j < col_row; j++)
+            {
+                System.out.print(arr1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("\nTransposed matrix:");
+        for(i = 0; i < col_row; i++)
+        {
+            for(j = 0; j < col_row; j++)
+            {
+                System.out.print(arr2[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
     //5
     public static void f5(int[][] matrix)
@@ -104,27 +118,19 @@ public class lesson12
     //6
     public static boolean f6(int[][] matrix)
     {
-    	int i  = 0;
-    	int j = 0;
-    	int sum = 0;
-    	int biggest_sum = 0;
-    	for(i = 0; i < matrix.length; i++)
-    	{
-    		biggest_sum = sum;
-    		for(j = 0; j < matrix[i].length; j++)
-    		{
-    			sum += matrix[i][j];
-    		}
-    		if(sum > biggest_sum)
-    		{
-    			biggest_sum = sum;
-    		}
-    		else
-    		{
-    			return false;
-    		}
-    	return true;
-    	}
+        for (int i = 0; i < matrix.length; i++)
+        {
+            int sum = 0;
+            for (int j = 0; j < matrix[i].length; j++)
+            {
+                sum += matrix[i][j];
+            }
+            if (i > 0 && sum < matrix[i - 1][0])
+            {
+                return false;
+            }
+        }
+        return true;
     }
     //7
     public static boolean f7(int [][] bool_mat)
@@ -145,10 +151,10 @@ public class lesson12
         return true;
     }
     //8
-    public static void f8(char [][] mat)
+    public static void f8(char [][] matt)
     {
         System.out.println("before:");
-        for (char[] row : mat)
+        for (char[] row : matt)
         {
             for (char element : row)
             {
@@ -157,20 +163,21 @@ public class lesson12
             System.out.println();
         }
         char[] temp;
-        for (int i = 0; i < mat.length - 1; i++)
+        for (int i = 0; i < matt.length - 1; i++)
         {
-            for (int j = i + 1; j < mat.length; j++)
+            for (int j = i + 1; j < matt.length; j++)
             {
-                if (String.valueOf(mat[i]).compareTo(String.valueOf(mat[j])) > 0)
+                if (String.valueOf(matt[i]).compareTo(String.valueOf(matt[j])) > 0)
                 {
-                    temp = mat[i];
-                    mat[i] = mat[j];
-                    mat[j] = temp;
+                    temp = matt[i];
+                    matt[i] = matt[j];
+                    matt[j] = temp;
                 }
             }
         }
         System.out.println("\nafter: ");
-        for (char[] row : mat) {
+        for (char[] row : matt)
+        {
             for (char element : row)
             {
                 System.out.print(element + " ");
@@ -179,7 +186,7 @@ public class lesson12
         }
     }
     //9
-    public static boolean isCityInMatrix(char[][] matrix, String city)
+    public static boolean f9(char[][] matrix, String city, char[][] mat)
     {
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -222,7 +229,7 @@ public class lesson12
         char [][] mat = {{'n', 'e', 's', 'l', 'e', 'y'},{'s', 'h', 'i', 'r', 'a'},{'i', 't', 'a', 'y'}};
         char[][] citiesMatrix = {{'H', 'a', 'i', 'f', 'a'},{'T', 'e', 'l', ' ', 'A', 'v', 'i', 'v'},{'E', 'i', 'l', 'a', 't'},{'J', 'e', 'r', 'u', 's', 'a', 'l', 'e', 'm'}};
         String city = "Dimona";
-        boolean found = isCityInMatrix(citiesMatrix, city);
+        boolean found = f9(citiesMatrix, city, mat);
         System.out.println("Is " + city + " in the matrix? " + found);
     }
 }
