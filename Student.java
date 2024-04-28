@@ -9,6 +9,36 @@ class Student
         lastName = lName;
         id = iD;
     }
+    public String getPrivateName()
+    {
+        return privateName;
+    }
+    public String getLastName()
+    {
+        return lastName;
+    }
+    public int getId()
+    {
+        return id;
+    }
+    public void setPrivateName(String pName)
+    {
+        privateName = pName;
+    }
+    public void setLastName(String lName)
+    {
+        lastName = lName;
+    }
+    public void setId(int iD)
+    {
+        id = iD;
+    }
+    public Student(Student other)
+    {
+        privateName=other.privateName;
+        lastName=other.lastName;
+        id=other.id;
+    }
     public String toString()
     {
         return  "First name: " + privateName + "\nLast name: " + lastName + "\nId: " + id;
